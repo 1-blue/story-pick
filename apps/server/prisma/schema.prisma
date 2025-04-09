@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator zod {
+  provider = "zod-prisma-types"
+  output   = "./generated/zod"
+
+  // 기본 모델 스키마만 생성하도록 설정
+  isGenerateSelect  = false
+  isGenerateInclude = false
+
+  // 다음 옵션들을 추가하여 불필요한 타입 생성 제한
+  isGenerateModelArgTypes          = false
+  createInputTypes                 = false
+  createModelTypes                 = true
+  addInputTypeValidation           = false
+  createOptionalDefaultValuesTypes = false
+  createRelationValuesTypes        = false
+  createPartialTypes               = false
+  useDefaultValidators             = false
+  coerceDate                       = true
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Dog {
+  id        String   @id @default(uuid())
+  name      String
+  birth     DateTime
+  price     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
