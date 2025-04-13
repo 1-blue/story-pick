@@ -90,9 +90,9 @@ const DogForm: React.FC<IProps> = ({
   });
 
   return (
-    <Card className={cn("w-full max-w-md mx-auto shadow-lg", className)}>
+    <Card className={cn("mx-auto w-full max-w-md shadow-lg", className)}>
       <CardHeader className="space-y-1">
-        <CardTitle className="text-2xl font-bold text-center">
+        <CardTitle className="text-center text-2xl font-bold">
           강아지 정보
         </CardTitle>
         <CardDescription className="text-center">
@@ -125,7 +125,7 @@ const DogForm: React.FC<IProps> = ({
             ))}
             <Button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
+              className="w-full rounded-md bg-blue-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-blue-700"
             >
               {submitButtonText}
             </Button>

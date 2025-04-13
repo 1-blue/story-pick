@@ -37,7 +37,7 @@ const MyTRPCProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
       links: [
         httpBatchLink({ url: `${process.env.NEXT_PUBLIC_SERVER_URL}/trpc` }),
       ],
-    })
+    }),
   );
 
   return (
