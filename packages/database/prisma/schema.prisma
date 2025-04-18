@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator zod {
+  provider = "zod-prisma-types"
+  output   = "./generated/zod"
+
+  // 기본 모델 스키마만 생성하도록 설정
+  isGenerateSelect  = false
+  isGenerateInclude = false
+
+  // 다음 옵션들을 추가하여 불필요한 타입 생성 제한
+  isGenerateModelArgTypes          = false
+  createInputTypes                 = false
+  createModelTypes                 = true
+  addInputTypeValidation           = false
+  createOptionalDefaultValuesTypes = false
+  createRelationValuesTypes        = false
+  createPartialTypes               = false
+  useDefaultValidators             = false
+  coerceDate                       = true
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Dog {
+  id        String   @id @default(uuid())
+  name      String
+  birth     DateTime
+  price     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+/// 유저 역할
+enum UserRole {
+  /// 관리자
+  ADMIN
+  /// 일부 권한을 부여받은 유저
+  MANAGER
+  /// 일반 유저
+  USER
+  /// 로그인하지 않고 체험으로 사용하는 유저 ( 1일 )
+  GUEST
+}
+
+/// 유저 로그인 방식
+enum UserProvider {
+  /// 일반 로그인 ( 이메일 + 비밀번호 )
+  LOCAL
+  /// 카카오 로그인
+  KAKAO
+  /// 구글 로그인
+  GOOGLE
+}
+
+/// 유저 모델
+model User {
+  /// 유저 식별자
+  id        String    @id @default(uuid())
+  /// 생성 일자
+  createdAt DateTime  @default(now())
+  /// 수정 일자
+  updatedAt DateTime  @updatedAt
+  /// 삭제 일자
+  deletedAt DateTime?
+
+  /// 유저 이메일
+  email      String       @unique
+  /// 유저 비밀번호
+  password   String
+  /// 유저 닉네임
+  nickname   String       @unique
+  /// 유저 휴대폰 번호
+  phone      String?      @unique
+  /// 유저 역할
+  role       UserRole
+  /// 유저 이미지 경로
+  imagePath  String?
+  /// 유저 로그인 방식
+  provider   UserProvider
+  /// 유저 로그인 방식 식별자 ( `OAuth`인 경우 제공받는값 )
+  providerId String?      @unique
+}

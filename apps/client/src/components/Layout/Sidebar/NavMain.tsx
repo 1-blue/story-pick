@@ -7,7 +7,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@workspace/ui/components/collapsible";
+} from "@sp/ui/components/collapsible";
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -17,9 +17,9 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-} from "@workspace/ui/components/sidebar";
+} from "@sp/ui/components/sidebar";
 
-import type { INav } from "#src/components/Layout/types";
+import type { INav } from "#client/components/Layout/types";
 
 interface IProps {
   navs: INav[];

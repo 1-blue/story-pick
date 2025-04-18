@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-import { Button } from "@workspace/ui/components/button";
+import { Button } from "@sp/ui/components/button";
 import {
   Form,
   FormControl,
@@ -12,8 +12,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@workspace/ui/components/form";
-import { Input } from "@workspace/ui/components/input";
+} from "@sp/ui/components/form";
+import { Input } from "@sp/ui/components/input";
 import {
   Card,
   CardContent,
@@ -21,9 +21,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@workspace/ui/components/card";
-import { cn } from "@workspace/ui/lib";
-import { useDogMutations } from "#src/app/dog/_hooks/useDogMutations";
+} from "@sp/ui/components/card";
+import { cn } from "@sp/ui/lib";
+import { useDogMutations } from "#client/app/dog/_hooks/useDogMutations";
 
 const formSchema = z.object({
   name: z.string().min(2, {

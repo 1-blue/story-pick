@@ -3,13 +3,13 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState, useCallback } from "react";
 import { Sun, Moon, Monitor } from "lucide-react";
-import { cn } from "@workspace/ui/lib";
+import { cn } from "@sp/ui/lib";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@workspace/ui/components/dropdown-menu";
+} from "@sp/ui/components/dropdown-menu";
 
 export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();

@@ -1,4 +1,4 @@
-import { cn } from "@workspace/ui/lib";
+import { cn } from "@sp/ui/lib";
 
 function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
   return (

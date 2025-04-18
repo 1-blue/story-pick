@@ -9,7 +9,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@workspace/ui/components/breadcrumb";
+} from "@sp/ui/components/breadcrumb";
 
 const convertPathnameToKorean = (pathname: string) => {
   switch (pathname) {

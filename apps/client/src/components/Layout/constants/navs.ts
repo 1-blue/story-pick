@@ -1,7 +1,7 @@
 import { Fingerprint, Pointer } from "lucide-react";
-import route from "#src/constants/route";
+import route from "#client/constants/route";
 
-import type { INav } from "#src/components/Layout/types";
+import type { INav } from "#client/components/Layout/types";
 
 const NAVS: INav[] = [
   {

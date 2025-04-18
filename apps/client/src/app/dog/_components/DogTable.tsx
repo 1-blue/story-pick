@@ -1,6 +1,6 @@
 "use client";
 
-import { useTRPC } from "#src/utils/trpc";
+import { useTRPC } from "#client/utils/trpc";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import {
   Table,
@@ -11,7 +11,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@workspace/ui/components/table";
+} from "@sp/ui/components/table";
 
 const DogTable: React.FC = () => {
   const trpc = useTRPC();

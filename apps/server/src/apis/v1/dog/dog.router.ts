@@ -1,9 +1,9 @@
 import { Router, Query, Input, Mutation } from "nestjs-trpc";
-import { Inject } from "@nestjs/common";
+import { Inject, NotFoundException } from "@nestjs/common";
 import { z } from "zod";
 
 import { DogService } from "./dog.service";
-import { Dog, dogSchema } from "./dog.schema";
+import { type Dog, dogSchema } from "./dog.schema";
 
 @Router({ alias: "dog" })
 export class DogRouter {
@@ -24,6 +24,10 @@ export class DogRouter {
   })
   async getDogById(@Input("dogId") dogId: string): Promise<Dog> {
     const dog = await this.dogService.getDogById(dogId);
+
+    if (!dog) {
+      throw new NotFoundException("Dog not found");
+    }
 
     return dog;
   }

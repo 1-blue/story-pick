@@ -1,7 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import { PrismaService } from '#src/prisma/prisma.service';
+import { Injectable } from "@nestjs/common";
+import { PrismaService } from "#server/prisma/prisma.service";
 
-import { Dog } from './dog.schema';
+import { Dog } from "./dog.schema";
 
 @Injectable()
 export class DogService {

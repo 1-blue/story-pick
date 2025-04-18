@@ -1,0 +1,31 @@
+{
+  "name": "@sp/db",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push --skip-generate",
+    "db:studio": "prisma studio",
+    "db:migrate": "prisma migrate dev",
+    "db:reset": "prisma migrate reset",
+    "db:seed": "prisma db seed"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "@sp/typescript-config": "workspace:*",
+    "prisma": "^6.6.0",
+    "zod": "^3.24.2",
+    "zod-prisma-types": "^3.2.4"
+  },
+  "prisma": {
+    "seed": "pnpm dlx ts-node prisma/seed/index.ts"
+  }
+}

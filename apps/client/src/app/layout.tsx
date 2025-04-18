@@ -1,11 +1,11 @@
-import "@workspace/ui/globals.css";
+import "@sp/ui/globals.css";
 
-import { ThemeToggle } from "@workspace/ui/components/custom/ThemeToggle";
+import { ThemeToggle } from "@sp/ui/components/custom/ThemeToggle";
 
-import MyTRPCProvider from "#src/providers/MyTRPCProvider";
-import MyThemeProvider from "#src/providers/MyThemeProvider";
+import MyTRPCProvider from "#client/providers/MyTRPCProvider";
+import MyThemeProvider from "#client/providers/MyThemeProvider";
 
-import Layout from "#src/components/Layout";
+import Layout from "#client/components/Layout";
 
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (

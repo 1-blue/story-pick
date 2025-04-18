@@ -1,14 +1,21 @@
-import { Injectable, OnModuleInit, Logger } from "@nestjs/common";
-import { PrismaClient } from "@prisma/client";
+import {
+  Injectable,
+  OnModuleInit,
+  OnModuleDestroy,
+  Logger,
+} from "@nestjs/common";
+import { PrismaClient } from "@sp/db";
 
 @Injectable()
-export class PrismaService extends PrismaClient implements OnModuleInit {
+export class PrismaService
+  extends PrismaClient
+  implements OnModuleInit, OnModuleDestroy
+{
   private readonly logger = new Logger(PrismaService.name);
 
   constructor() {
-    super({
-      log: ["query"],
-    });
+    super();
+    // super({ log: ["query"] });
   }
 
   async onModuleInit() {
@@ -17,8 +24,12 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
       await this.$connect();
       this.logger.log("🟢 데이터베이스 연결이 완료");
     } catch (error) {
-      this.logger.error(`🔴 데이터베이스 연결 실패: ${error.message}`);
+      this.logger.error(`🔴 데이터베이스 연결 실패 >> `, { error });
       throw error;
     }
+  }
+
+  async onModuleDestroy() {
+    await this.$disconnect();
   }
 }

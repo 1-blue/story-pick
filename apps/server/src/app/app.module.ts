@@ -3,15 +3,15 @@ import { TRPCModule } from "nestjs-trpc";
 
 import { AppContext } from "./app.context";
 
-import { PrismaModule } from "#src/prisma/prisma.module";
-import { DogModule } from "#src/v1/dog/dog.module";
+import { PrismaModule } from "#server/prisma/prisma.module";
+import { DogModule } from "#server/apis/v1/dog/dog.module";
 
 @Module({
   imports: [
     TRPCModule.forRoot({
       autoSchemaFile: "./src/@generated",
       // TODO: 에러 메시지 처리하기
-      errorFormatter: (error) => error,
+      errorFormatter: (error: any) => error,
       context: AppContext,
     }),
 

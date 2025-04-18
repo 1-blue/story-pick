@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 
-import { Button } from "@workspace/ui/components/button";
+import { Button } from "@sp/ui/components/button";
 
 const Page: NextPage = () => {
   return (

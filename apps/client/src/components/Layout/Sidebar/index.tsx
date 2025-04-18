@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Separator } from "@workspace/ui/components/separator";
+import { Separator } from "@sp/ui/components/separator";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@workspace/ui/components/sidebar";
+} from "@sp/ui/components/sidebar";
 
 import AppSidebar from "./AppSidebar";
 import HeaderBreadcrumb from "./HeaderBreadcrumb";

@@ -1,4 +1,4 @@
-import { useTRPC } from "#src/utils/trpc";
+import { useTRPC } from "#client/utils/trpc";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export const useDogMutations = () => {

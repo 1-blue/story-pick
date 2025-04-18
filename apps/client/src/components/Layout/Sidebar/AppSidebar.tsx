@@ -7,9 +7,9 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-} from "@workspace/ui/components/sidebar";
+} from "@sp/ui/components/sidebar";
 
-import { NAVS } from "#src/components/Layout/constants";
+import { NAVS } from "#client/components/Layout/constants";
 
 import NavHeader from "./NavHeader";
 import NavMain from "./NavMain";
